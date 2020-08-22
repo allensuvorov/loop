@@ -10,6 +10,13 @@
 
 // Your code here.
 
+function loop (value, test, update, body) {
+    if(!test(value)) return; // test
+    body(value); // run body
+    value = update(value); // update value
+    loop (value, test, update, body); // loop again
+}
+
 loop(3, n => n > 0, n => n - 1, console.log);
 // → 3
 // → 2
